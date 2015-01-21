@@ -47,7 +47,6 @@ static NSString *StringFromNSDecimalWithCurrentLocal(NSDecimal dcm) {
 static NSString *StringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate) {
 	return [NSString stringWithFormat:@"{latitude: %g, longitude: %g}", coordinate.latitude, coordinate.longitude];
 }
-
 #endif
 
 // based on http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
