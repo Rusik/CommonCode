@@ -1,9 +1,8 @@
 //
-// Copyright (c) 2008-2010, Vincent Gable.
-// http://vincentgable.com
+// Copyright (c) 2015 Ruslan Kavetsky
 //
-// based off http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
-//
+// Based on: https://github.com/VTPG/CommonCode
+//           http://vgable.com/blog/2010/08/19/the-most-useful-objective-c-code-ive-ever-written/
 
 #import "VTPG_Common.h"
 
@@ -46,11 +45,13 @@ static NSString *StringFromNSDecimalWithCurrentLocal(NSDecimal dcm) {
 
 #ifdef __CORELOCATION__
 static NSString *StringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate) {
-	return [NSString stringWithFormat:@"{latitude=%g,longitude=%g}", coordinate.latitude, coordinate.longitude];
+	return [NSString stringWithFormat:@"{latitude: %g, longitude: %g}", coordinate.latitude, coordinate.longitude];
 }
 
 #endif
 
+// based on http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
+//
 NSString *VTPG_DDToStringFromTypeAndValue(const char *typeCode, void *value) {
 #define IF_TYPE_MATCHES_INTERPRET_WITH(typeToMatch, func) \
 	if (strcmp(typeCode, @encode(typeToMatch)) == 0) \
